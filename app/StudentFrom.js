@@ -1,18 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Form, Input, Button, Radio, Select } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-// import "./css/StudentForm.css";
-
-const formItemLayout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
 
 const Home = () => {
   const [form] = Form.useForm();
@@ -27,19 +17,17 @@ const Home = () => {
 
   return (
     <>
-      <div className="container mx-auto px-4 mt-16 md:mt-24">
-        <div className="bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto">
-          <h1 className="text-2xl font-bold text-center mb-6">
-            Add Student
-          </h1>
+      <div className="flex justify-center items-center px-4 sm:px-6 lg:px-8 mt-10">
+      
+          {/* <h1 className="text-2xl font-bold text-center mb-6">Add Student</h1> */}
           <Form
-            {...formItemLayout}
             form={form}
             name="register"
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
-            className="space-y-6"
+            className="space-y-4"
+            layout="vertical"
           >
             <Form.Item
               label="Name"
@@ -50,10 +38,9 @@ const Home = () => {
                   message: "Please input your name!",
                 },
               ]}
-              className="flex flex-col"
             >
               <Input
-                className="rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                className="rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500"
               />
             </Form.Item>
 
@@ -66,10 +53,9 @@ const Home = () => {
                   message: "Please input your roll number!",
                 },
               ]}
-              className="flex flex-col"
             >
               <Input
-                className="rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                className="rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500"
               />
             </Form.Item>
 
@@ -82,10 +68,9 @@ const Home = () => {
                   message: "Please enter a valid email!",
                 },
               ]}
-              className="flex flex-col"
             >
               <Input
-                className="rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                className="rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500"
               />
             </Form.Item>
 
@@ -98,9 +83,8 @@ const Home = () => {
                   message: "Please select a gender!",
                 },
               ]}
-              className="flex flex-col"
             >
-              <Radio.Group>
+              <Radio.Group className="flex">
                 <Radio value="male" className="mr-4">
                   Male
                 </Radio>
@@ -117,15 +101,15 @@ const Home = () => {
                   message: "Please select a department!",
                 },
               ]}
-              className="flex flex-col"
             >
-              <Select className="rounded-lg">
+              <Select
+                className="rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Select Department"
+              >
                 <Select.Option value="CSE">
                   Computer Science Engineering
                 </Select.Option>
-                <Select.Option value="IT">
-                  Information Technology
-                </Select.Option>
+                <Select.Option value="IT">Information Technology</Select.Option>
                 <Select.Option value="ECE">
                   Electronics and Communication Engineering
                 </Select.Option>
@@ -136,14 +120,14 @@ const Home = () => {
               <Button
                 type="primary"
                 htmlType="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-lg py-2"
+                className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-md py-2"
               >
                 <PlusOutlined /> Add Student
               </Button>
             </Form.Item>
           </Form>
         </div>
-      </div>
+     
     </>
   );
 };
