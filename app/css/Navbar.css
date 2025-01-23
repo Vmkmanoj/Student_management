@@ -1,0 +1,23 @@
+/* Base styles */
+.fixed {
+    position: fixed;
+  }
+  
+  .md\\:hidden {
+    display: none;
+  }
+  
+  .md\\:translate-x-0 {
+    transform: translateX(0);
+  }
+  
+  /* Apply media query for larger screens */
+  @media (min-width: 768px) {
+    .md\\:hidden {
+      display: none !important;
+    }
+    .md\\:translate-x-0 {
+      transform: none !important;
+    }
+  }
+  

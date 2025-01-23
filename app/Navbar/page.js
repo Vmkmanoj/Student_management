@@ -1,47 +1,58 @@
-import React from 'react';
-import { Col, Flex, Menu } from 'antd';
-import { UserOutlined, SettingOutlined, UserAddOutlined } from '@ant-design/icons';
+"use client"
+
+import React, { useState } from 'react';
+import { MenuOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 
-const { SubMenu } = Menu;
-
-const items = [
-  {
-    label: (
-      <Link href="/" legacyBehavior>
-        <a>Add Student</a>
-      </Link>
-    ),
-    key: 'Add Student',
-    icon: <UserAddOutlined />,
-  },
-  {
-    label: (
-      <Link href="/ViewStudent" legacyBehavior>
-        <a>View Student</a>
-      </Link>
-    ),
-    key: 'about',
-    icon: <UserOutlined />,
-  },
-  {
-    label: (
-      <Link href="/Homepage" legacyBehavior>
-        <a>Homepage</a>
-      </Link>
-    ),
-    key: 'settings',
-    icon: <SettingOutlined />,
-  },
-];
-
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <Menu 
-      mode="inline" 
-      items={items} 
-      className="fixed left-0 top-0 h-screen w-64 bg-gray-100 shadow-md" 
-    />
+    <div>
+      {/* Hamburger Button */}
+      <button
+        className="md:hidden fixed top-4 left-4 z-20 p-2 bg-gray-100 rounded-full shadow-lg focus:outline-none"
+        onClick={toggleMenu}
+      >
+        <MenuOutlined className="text-xl text-gray-700" />
+      </button>
+
+      {/* Sidebar Menu */}
+      <div
+        className={`fixed top-0 left-0 h-screen w-64 bg-gray-100 shadow-md transform ${
+          isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        } transition-transform duration-300 ease-in-out md:translate-x-0 z-10`}
+      >
+        <ul className="flex flex-col space-y-4 p-6">
+          <li>
+            <Link href="/" legacyBehavior>
+              <a className="flex items-center text-gray-700 hover:text-blue-500 transition-colors">
+                <span className="mr-2 text-lg">➕</span> Add Student
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/ViewStudent" legacyBehavior>
+              <a className="flex items-center text-gray-700 hover:text-blue-500 transition-colors">
+                <span className="mr-2 text-lg">👤</span> View Student
+              </a>
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      {/* Overlay for Mobile */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-25 md:hidden z-5"
+          onClick={toggleMenu}
+        ></div>
+      )}
+    </div>
   );
 };
 
