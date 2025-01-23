@@ -1,0 +1,19 @@
+/* styles.css */
+.ant-form {
+    background-color: #ffffff;
+    padding: 20px;
+  }
+  
+  .ant-form-item {
+    margin-bottom: 10px;
+  }
+  
+  .ant-btn-primary {
+    background-color: #333;
+    border-color: #333;
+  }
+  
+  .ant-btn-primary:hover {
+    background-color: #444;
+    border-color: #444;
+  }
