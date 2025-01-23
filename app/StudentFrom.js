@@ -107,11 +107,11 @@ const Home = () => {
                 placeholder="Select Department"
               >
                 <Select.Option value="CSE">
-                  Computer Science Engineering
+                  CSE
                 </Select.Option>
-                <Select.Option value="IT">Information Technology</Select.Option>
+                <Select.Option value="IT">IT</Select.Option>
                 <Select.Option value="ECE">
-                  Electronics and Communication Engineering
+                  ECE
                 </Select.Option>
               </Select>
             </Form.Item>
