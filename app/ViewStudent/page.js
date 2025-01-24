@@ -81,12 +81,11 @@ export default function ViewStudent() {
             {students.map((student) => (
               <Col key={student.id} xs={24} sm={12} md={8} lg={6}>
                 <Card
-                  title={student.name}
+                  title={<div style={{ textAlign: "center" }}>{student.name}</div>}
                   bordered={true}
                   hoverable
                   style={{
                     width: "100%",
-                    textAlign: "center",
                     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
                     borderRadius: "8px",
                     backgroundColor: "#ffffff", // Card background
@@ -107,18 +106,20 @@ export default function ViewStudent() {
                     </Button>,
                   ]}
                 >
-                  <p>
-                    <strong>Roll No:</strong> {student.roll_no}
-                  </p>
-                  <p>
-                    <strong>Email:</strong> {student.email}
-                  </p>
-                  <p>
-                    <strong>Gender:</strong> {student.gender}
-                  </p>
-                  <p>
-                    <strong>Department:</strong> {student.department}
-                  </p>
+                  <div style={{ }}>
+                    <p>
+                      <strong>Roll No:</strong> {student.roll_no}
+                    </p>
+                    <p>
+                      <strong>Email:</strong> {student.email}
+                    </p>
+                    <p>
+                      <strong>Gender:</strong> {student.gender}
+                    </p>
+                    <p>
+                      <strong>Department:</strong> {student.department}
+                    </p>
+                  </div>
                 </Card>
               </Col>
             ))}
