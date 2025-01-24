@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Form, Input, Button, Radio, Select, message } from "antd";
+import { Form, Input, Button, Radio, Select, message, Card, Row, Col } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
         },
         body: JSON.stringify(values),
       });
-  
+
       if (response.ok) {
         message.success("Student added successfully");
         window.alert("Update Student");
@@ -30,76 +30,104 @@ const Home = () => {
       message.error(`Failed to add student: ${error.message}`);
     }
   };
-  
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
 
   return (
-    <div className="flex justify-center items-center px-4 sm:px-6 lg:px-8 mt-10">
-      <Form
-        form={form}
-        name="register"
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-        className="space-y-4"
-        layout="vertical"
+    <div className="flex justify-center items-center  sm:px-6 lg:px-16 mt-36">
+      <Card
+        title="Add New Student"
+        style={{
+          width: "100%",
+          maxWidth: "500px",
+          borderRadius: "8px",
+          margin: "0 auto", // Centering the card
+        }}
+        bodyStyle={{ padding: "24px" }}
+        headStyle={{
+          backgroundColor: "#1890ff",
+          color: "#fff",
+          fontWeight: "bold",
+          textAlign: "center",
+        }}
       >
-        <Form.Item
-          label="Name"
-          name="name"
-          rules={[{ required: true, message: "Please input your name!" }]}
+        <Form
+          form={form}
+          name="register"
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+          className="space-y-4"
+          layout="vertical"
         >
-          <Input />
-        </Form.Item>
+          <Form.Item
+            label="Name"
+            name="name"
+            rules={[{ required: true, message: "Please input your name!" }]}
+          >
+            <Input placeholder="Enter student name" />
+          </Form.Item>
 
-        <Form.Item
-          label="Roll No"
-          name="rollNo"
-          rules={[{ required: true, message: "Please input your roll number!" }]}
-        >
-          <Input />
-        </Form.Item>
+          <Form.Item
+            label="Roll No"
+            name="rollNo"
+            rules={[{ required: true, message: "Please input your roll number!" }]}
+          >
+            <Input placeholder="Enter roll number" />
+          </Form.Item>
 
-        <Form.Item
-          label="Email"
-          name="email"
-          rules={[{ type: "email", message: "Please enter a valid email!" }]}
-        >
-          <Input />
-        </Form.Item>
+          <Form.Item
+            label="Email"
+            name="email"
+            rules={[{ type: "email", message: "Please enter a valid email!" }]}
+          >
+            <Input placeholder="Enter email address" />
+          </Form.Item>
 
-        <Form.Item
-          label="Gender"
-          name="gender"
-          rules={[{ required: true, message: "Please select a gender!" }]}
-        >
-          <Radio.Group>
-            <Radio value="male">Male</Radio>
-            <Radio value="female">Female</Radio>
-          </Radio.Group>
-        </Form.Item>
+          <Form.Item
+            label="Gender"
+            name="gender"
+            rules={[{ required: true, message: "Please select a gender!" }]}
+          >
+            <Radio.Group>
+              <Radio value="male">Male</Radio>
+              <Radio value="female">Female</Radio>
+            </Radio.Group>
+          </Form.Item>
 
-        <Form.Item
-          label="Department"
-          name="department"
-          rules={[{ required: true, message: "Please select a department!" }]}
-        >
-          <Select placeholder="Select Department">
-            <Select.Option value="CSE">CSE</Select.Option>
-            <Select.Option value="IT">IT</Select.Option>
-            <Select.Option value="ECE">ECE</Select.Option>
-          </Select>
-        </Form.Item>
+          <Form.Item
+            label="Department"
+            name="department"
+            rules={[{ required: true, message: "Please select a department!" }]}
+          >
+            <Select placeholder="Select Department">
+              <Select.Option value="CSE">CSE</Select.Option>
+              <Select.Option value="IT">IT</Select.Option>
+              <Select.Option value="ECE">ECE</Select.Option>
+            </Select>
+          </Form.Item>
 
-        <Form.Item>
-          <Button type="primary" htmlType="submit">
-            <PlusOutlined /> Add Student
-          </Button>
-        </Form.Item>
-      </Form>
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              block
+              style={{
+                backgroundColor: "#1890ff",
+                borderColor: "#1890ff",
+                borderRadius: "5px",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => (e.target.style.backgroundColor = "#40a9ff")}
+              onMouseLeave={(e) => (e.target.style.backgroundColor = "#1890ff")}
+            >
+              <PlusOutlined /> Add Student
+            </Button>
+          </Form.Item>
+        </Form>
+      </Card>
     </div>
   );
 };
