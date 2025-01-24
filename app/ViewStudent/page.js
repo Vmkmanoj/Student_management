@@ -3,6 +3,7 @@
 import { Flex, Col, Row, Card, Spin, Button } from "antd";
 import Navbar from "../Navbar/page";
 import { useState, useEffect } from "react";
+import { DeleteOutlined } from "@ant-design/icons"
 
 export default function ViewStudent() {
   const [students, setStudents] = useState([]);
@@ -74,7 +75,7 @@ export default function ViewStudent() {
                       type="danger"
                       onClick={() => handleDelete(student.id)}
                     >
-                      Delete
+                     <DeleteOutlined color="red"/>
                     </Button>,
                   ]}
                 >

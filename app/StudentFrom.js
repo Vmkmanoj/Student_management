@@ -22,10 +22,11 @@ const Home = () => {
         console.error("Error adding student:", errorData.error || "Unknown error");
       } else {
         console.log("Student added successfully");
-        message.success("data Added");
+        message.success("Student added successfully");
       }
     } catch (error) {
       console.error("Failed to fetch:", error.message);
+      message.error(`Failed to add student: ${error.message}`);
     }
   };
 
