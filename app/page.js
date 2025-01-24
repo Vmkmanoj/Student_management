@@ -5,19 +5,14 @@ import StudentFrom from "./StudentFrom";
 
 export default function Home() {
   return (
-    <Flex style={{ display: 'flex' }}> 
+    <Flex> 
 
     <Col span={4}>
-    <Navbar />
-    
+      <Navbar />
     </Col>
 
     <Col span={8}>
-    
-
         <StudentFrom></StudentFrom>
-      
-    
     </Col>
      
      

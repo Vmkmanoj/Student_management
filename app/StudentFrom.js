@@ -36,7 +36,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex justify-center items-center  sm:px-6 lg:px-16 mt-36">
+    <div className="flex justify-center items-center px-4 sm:px-1 lg:px-1 mt-10">
       <Card
         title="Add New Student"
         style={{
@@ -62,70 +62,84 @@ const Home = () => {
           className="space-y-4"
           layout="vertical"
         >
-          <Form.Item
-            label="Name"
-            name="name"
-            rules={[{ required: true, message: "Please input your name!" }]}
-          >
-            <Input placeholder="Enter student name" />
-          </Form.Item>
+          <Row gutter={[16, 24]}>
+            <Col xs={24}>
+              <Form.Item
+                label="Name"
+                name="name"
+                rules={[{ required: true, message: "Please input your name!" }]}
+              >
+                <Input placeholder="Enter student name" />
+              </Form.Item>
+            </Col>
 
-          <Form.Item
-            label="Roll No"
-            name="rollNo"
-            rules={[{ required: true, message: "Please input your roll number!" }]}
-          >
-            <Input placeholder="Enter roll number" />
-          </Form.Item>
+            <Col xs={24}>
+              <Form.Item
+                label="Roll No"
+                name="rollNo"
+                rules={[{ required: true, message: "Please input your roll number!" }]}
+              >
+                <Input placeholder="Enter roll number" />
+              </Form.Item>
+            </Col>
 
-          <Form.Item
-            label="Email"
-            name="email"
-            rules={[{ type: "email", message: "Please enter a valid email!" }]}
-          >
-            <Input placeholder="Enter email address" />
-          </Form.Item>
+            <Col xs={24}>
+              <Form.Item
+                label="Email"
+                name="email"
+                rules={[{ type: "email", message: "Please enter a valid email!" }]}
+              >
+                <Input placeholder="Enter email address" />
+              </Form.Item>
+            </Col>
 
-          <Form.Item
-            label="Gender"
-            name="gender"
-            rules={[{ required: true, message: "Please select a gender!" }]}
-          >
-            <Radio.Group>
-              <Radio value="male">Male</Radio>
-              <Radio value="female">Female</Radio>
-            </Radio.Group>
-          </Form.Item>
+            <Col xs={24}>
+              <Form.Item
+                label="Gender"
+                name="gender"
+                rules={[{ required: true, message: "Please select a gender!" }]}
+              >
+                <Radio.Group>
+                  <Radio value="male">Male</Radio>
+                  <Radio value="female">Female</Radio>
+                </Radio.Group>
+              </Form.Item>
+            </Col>
 
-          <Form.Item
-            label="Department"
-            name="department"
-            rules={[{ required: true, message: "Please select a department!" }]}
-          >
-            <Select placeholder="Select Department">
-              <Select.Option value="CSE">CSE</Select.Option>
-              <Select.Option value="IT">IT</Select.Option>
-              <Select.Option value="ECE">ECE</Select.Option>
-            </Select>
-          </Form.Item>
+            <Col xs={24}>
+              <Form.Item
+                label="Department"
+                name="department"
+                rules={[{ required: true, message: "Please select a department!" }]}
+              >
+                <Select placeholder="Select Department">
+                  <Select.Option value="CSE">CSE</Select.Option>
+                  <Select.Option value="IT">IT</Select.Option>
+                  <Select.Option value="ECE">ECE</Select.Option>
+                </Select>
+              </Form.Item>
+            </Col>
 
-          <Form.Item>
-            <Button
-              type="primary"
-              htmlType="submit"
-              block
-              style={{
-                backgroundColor: "#1890ff",
-                borderColor: "#1890ff",
-                borderRadius: "5px",
-                transition: "all 0.3s ease",
-              }}
-              onMouseEnter={(e) => (e.target.style.backgroundColor = "#40a9ff")}
-              onMouseLeave={(e) => (e.target.style.backgroundColor = "#1890ff")}
-            >
-              <PlusOutlined /> Add Student
-            </Button>
-          </Form.Item>
+            <Col xs={24}>
+              <Form.Item>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  block
+                  style={{
+                    backgroundColor: "#1890ff",
+                    borderColor: "#1890ff",
+                    borderRadius: "5px",
+                    transition: "all 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => (e.target.style.backgroundColor = "#40a9ff")}
+                  onMouseLeave={(e) => (e.target.style.backgroundColor = "#1890ff")}
+                >
+                  <PlusOutlined /> Add Student
+                </Button>
+              </Form.Item>
+            </Col>
+          </Row>
         </Form>
       </Card>
     </div>
