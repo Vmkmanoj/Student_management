@@ -1,9 +1,11 @@
 "use client";
 
-import { Flex, Col, Row, Card, Spin, Button } from "antd";
+import { Flex, Col, Row, Card, Spin, Button, Typography } from "antd";
 import Navbar from "../Navbar/page";
 import { useState, useEffect } from "react";
-import { DeleteOutlined } from "@ant-design/icons"
+import { DeleteOutlined, UserOutlined } from "@ant-design/icons";
+
+const { Title } = Typography;
 
 export default function ViewStudent() {
   const [students, setStudents] = useState([]);
@@ -31,36 +33,49 @@ export default function ViewStudent() {
 
   const handleDelete = async (studentId) => {
     try {
-      const response = await fetch(`https://backend-ozb3.vercel.app/delete-user?id=${studentId}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://backend-ozb3.vercel.app/delete-user?id=${studentId}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
       }
-      setStudents((prevStudents) => prevStudents.filter((student) => student.id !== studentId));
+      setStudents((prevStudents) =>
+        prevStudents.filter((student) => student.id !== studentId)
+      );
     } catch (err) {
       setError(`Failed to delete student: ${err.message}`);
     }
-};
-
-
+  };
 
   return (
-    <Flex direction="column" style={{ height: "100vh" }}>
+    <Flex direction="column" style={{ minHeight: "100vh", backgroundColor: "#f4f6f9" }}>
       <Col span={4}>
         <Navbar />
       </Col>
       <Col span={20} style={{ padding: "20px" }}>
-        <h1 className="text-2xl font-bold mb-6">Student List</h1>
-        {error && <p className="text-red-500">{error}</p>}
+        <Title level={2} className="mb-6 text-center" style={{ color: "#1890ff" }}>
+          <UserOutlined /> Student List
+        </Title>
+
+        {error && (
+          <p style={{ color: "#f5222d", textAlign: "center" }}>{error}</p>
+        )}
+
         {loading && (
           <div style={{ textAlign: "center", marginTop: "50px" }}>
             <Spin size="large" tip="Loading Students..." />
           </div>
         )}
+
         {!loading && students.length === 0 && (
-          <p style={{ textAlign: "center", marginTop: "50px" }}>No students found.</p>
+          <p style={{ textAlign: "center", marginTop: "50px" }}>
+            No students found.
+          </p>
         )}
+
         {!loading && students.length > 0 && (
           <Row gutter={[16, 16]}>
             {students.map((student) => (
@@ -69,13 +84,26 @@ export default function ViewStudent() {
                   title={student.name}
                   bordered={true}
                   hoverable
-                  style={{ width: "100%", textAlign: "center" }}
+                  style={{
+                    width: "100%",
+                    textAlign: "center",
+                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                    borderRadius: "8px",
+                    backgroundColor: "#ffffff", // Card background
+                  }}
                   actions={[
                     <Button
                       type="danger"
                       onClick={() => handleDelete(student.id)}
+                      icon={<DeleteOutlined />}
+                      size="large"
+                      style={{
+                        backgroundColor: "#ff4d4f", // Delete button color
+                        borderColor: "#ff4d4f",
+                        color: "#fff",
+                      }}
                     >
-                     <DeleteOutlined color="red"/>
+                      Delete
                     </Button>,
                   ]}
                 >

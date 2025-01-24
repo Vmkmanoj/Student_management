@@ -23,11 +23,11 @@ const Navbar = () => {
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-0 left-0 h-screen w-64 bg-gray-100 shadow-md transform ${
+        className={`fixed top-0 left-0 h-screen w-64 bg-gray-200 shadow-lg transform ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 ease-in-out md:translate-x-0 z-10`}
       >
-        <ul className="flex flex-col space-y-4 p-6">
+        <ul className="flex flex-col space-y-4 p-6 mt-20">
           <li>
             <Link href="/" legacyBehavior>
               <a className="flex items-center text-gray-700 hover:text-blue-500 transition-colors">
