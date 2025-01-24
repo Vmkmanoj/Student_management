@@ -106,7 +106,7 @@ export default function ViewStudent() {
                     </Button>,
                   ]}
                 >
-                  <div style={{ }}>
+                  <div>
                     <p>
                       <strong>Roll No:</strong> {student.roll_no}
                     </p>
