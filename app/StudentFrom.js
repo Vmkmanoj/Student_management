@@ -9,26 +9,28 @@ const Home = () => {
 
   const onFinish = async (values) => {
     try {
-      const response = await fetch("https://backend-ozb3.vercel.app/add-student ", {
+      const response = await fetch("https://backend-ozb3.vercel.app/add-student", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
       });
-
-      if (!response.ok) {
+  
+      if (response.ok) {
+        message.success("Student added successfully");
+        window.alert("Update Student");
+      } else {
         const errorData = await response.json();
         console.error("Error adding student:", errorData.error || "Unknown error");
-      } else {
-        console.log("Student added successfully");
-        message.success("Student added successfully");
+        message.error(`Failed to add student: ${errorData.error || "Unknown error"}`);
       }
     } catch (error) {
       console.error("Failed to fetch:", error.message);
       message.error(`Failed to add student: ${error.message}`);
     }
   };
+  
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
