@@ -10,7 +10,7 @@ export default function Home() {
       gutter={[16, 16]} // Adds spacing between columns
       style={{
         minHeight: "100vh",
-        padding: "20px",
+        // padding: "20px",
         background: "linear-gradient(135deg, #e3f2fd, #ede7f6)", // Gradient background
       }}
     >
@@ -22,10 +22,10 @@ export default function Home() {
         lg={4} // 4-column width on large screens
         xl={4} // 4-column width on extra-large screens
         style={{
-          background: "#fff",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Subtle shadow for navbar
+          // background: "#fff",
+          // boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Subtle shadow for navbar
           borderRadius: "8px",
-          padding: "16px",
+          // padding: "16px",
         }}
       >
         <Navbar />
@@ -39,10 +39,10 @@ export default function Home() {
         lg={10}
         xl={8}
         style={{
-          background: "#fff",
+          // background: "#fff",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
           borderRadius: "8px",
-          padding: "16px",
+          // padding: "16px",
           margin: "0 auto", // Center the column
         }}
       >

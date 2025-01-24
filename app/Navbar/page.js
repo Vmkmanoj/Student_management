@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
-import { MenuOutlined } from '@ant-design/icons';
+import { MenuOutlined,UserAddOutlined ,UserOutlined} from '@ant-design/icons';
 import Link from 'next/link';
 
 const Navbar = () => {
@@ -23,22 +23,22 @@ const Navbar = () => {
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-0 left-0 h-screen w-64 bg-gray-200 shadow-lg transform ${
+        className={`fixed top-0 left-0 h-screen w-64 bg-[#282828] shadow-lg transform ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 ease-in-out md:translate-x-0 z-10`}
       >
-        <ul className="flex flex-col space-y-4 p-6 mt-20">
+        <ul className="flex flex-col space-y-4 p-6 mt-20 gap-11">
           <li>
             <Link href="/" legacyBehavior>
-              <a className="flex items-center text-gray-700 hover:text-blue-500 transition-colors">
-                <span className="mr-2 text-lg">➕</span> Add Student
+              <a className="flex items-center text-white text-base hover:text-blue-500 transition-colors">
+                <span className="mr-2 text-lg"><UserAddOutlined /></span> Add Student
               </a>
             </Link>
           </li>
           <li>
             <Link href="/ViewStudent" legacyBehavior>
-              <a className="flex items-center text-gray-700 hover:text-blue-500 transition-colors">
-                <span className="mr-2 text-lg">👤</span> View Student
+              <a className="flex items-center text-white text-base hover:text-blue-500 transition-colors">
+                <span className="mr-2 text-lg"><UserOutlined /></span> View Student
               </a>
             </Link>
           </li>

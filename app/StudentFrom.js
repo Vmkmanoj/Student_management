@@ -19,6 +19,7 @@ const Home = () => {
 
       if (response.ok) {
         message.success("Student added successfully");
+        window.alert("Student added");
         form.resetFields();
       } else {
         const errorData = await response.json();
@@ -41,25 +42,28 @@ const Home = () => {
       align="middle"
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #e0f7fa, #e1bee7)",
-        padding: "20px",
+        backgroundColor: "#f4f4f4", // Soft background color
+        padding: "40px 20px",
       }}
     >
-      <Col xs={24} sm={20} md={16} lg={12} xl={10}>
+      <Col xs={24} sm={20} md={16} lg={12} xl={20}>
         <Card
           title="Add New Student"
           style={{
-            borderRadius: "12px",
-            boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
-            overflow: "hidden",
+            borderRadius: "16px", // Rounded corners for card
+            boxShadow: "0 8px 20px rgba(0, 0, 0, 0.1)",
+            background: "#fff", // White background for card
+            border: "none",
           }}
-          bodyStyle={{ padding: "24px" }}
+          bodyStyle={{ padding: "40px" }}
           headStyle={{
-            backgroundColor: "#673ab7",
+            background: "#009688", // Gradient color for the header
             color: "#fff",
             fontWeight: "bold",
-            fontSize: "1.5rem",
+            fontSize: "1.6rem",
             textAlign: "center",
+            borderRadius: "16px 16px 0 0", // Rounded top corners
+            padding: "20px 0",
           }}
         >
           <Form
@@ -76,8 +80,9 @@ const Home = () => {
                   label="Name"
                   name="name"
                   rules={[{ required: true, message: "Please input your name!" }]}
+                  labelStyle={{ color: "#333", fontWeight: "bold" }} // Darker label color
                 >
-                  <Input placeholder="Enter student name" />
+                  <Input placeholder="Enter student name" style={{ borderRadius: "8px", padding: "10px" }} />
                 </Form.Item>
               </Col>
 
@@ -86,8 +91,9 @@ const Home = () => {
                   label="Roll No"
                   name="rollNo"
                   rules={[{ required: true, message: "Please input your roll number!" }]}
+                  labelStyle={{ color: "#333", fontWeight: "bold" }}
                 >
-                  <Input placeholder="Enter roll number" />
+                  <Input placeholder="Enter roll number" style={{ borderRadius: "8px", padding: "10px" }} />
                 </Form.Item>
               </Col>
 
@@ -96,8 +102,9 @@ const Home = () => {
                   label="Email"
                   name="email"
                   rules={[{ type: "email", message: "Please enter a valid email!" }]}
+                  labelStyle={{ color: "#333", fontWeight: "bold" }}
                 >
-                  <Input placeholder="Enter email address" />
+                  <Input placeholder="Enter email address" style={{ borderRadius: "8px", padding: "10px" }} />
                 </Form.Item>
               </Col>
 
@@ -106,8 +113,9 @@ const Home = () => {
                   label="Gender"
                   name="gender"
                   rules={[{ required: true, message: "Please select a gender!" }]}
+                  labelStyle={{ color: "#333", fontWeight: "bold" }}
                 >
-                  <Radio.Group>
+                  <Radio.Group style={{ display: "flex", gap: "20px" }}>
                     <Radio value="male">Male</Radio>
                     <Radio value="female">Female</Radio>
                   </Radio.Group>
@@ -119,8 +127,15 @@ const Home = () => {
                   label="Department"
                   name="department"
                   rules={[{ required: true, message: "Please select a department!" }]}
+                  labelStyle={{ color: "#333", fontWeight: "bold" }}
                 >
-                  <Select placeholder="Select Department">
+                  <Select
+                    placeholder="Select Department"
+                    style={{
+                      // borderRadius: "8px",
+                      // padding: "10px",
+                    }}
+                  >
                     <Select.Option value="CSE">CSE</Select.Option>
                     <Select.Option value="IT">IT</Select.Option>
                     <Select.Option value="ECE">ECE</Select.Option>
@@ -135,18 +150,16 @@ const Home = () => {
                     htmlType="submit"
                     block
                     style={{
-                      backgroundColor: "#673ab7",
-                      borderColor: "#673ab7",
-                      color: "#fff",
+                      backgroundColor: "#009688", // Main button color
                       borderRadius: "8px",
                       fontSize: "16px",
                       fontWeight: "bold",
                       height: "48px",
-                      boxShadow: "0 4px 10px rgba(103, 58, 183, 0.3)",
-                      transition: "all 0.3s ease",
+                      boxShadow: "0 4px 10px rgba(0, 150, 136, 0.2)",
+                      transition: "background-color 0.3s ease",
                     }}
-                    onMouseEnter={(e) => (e.target.style.backgroundColor = "#5e35b1")}
-                    onMouseLeave={(e) => (e.target.style.backgroundColor = "#673ab7")}
+                    onMouseEnter={(e) => (e.target.style.backgroundColor = "#00796b")}
+                    onMouseLeave={(e) => (e.target.style.backgroundColor = "#009688")}
                   >
                     <PlusOutlined /> Add Student
                   </Button>

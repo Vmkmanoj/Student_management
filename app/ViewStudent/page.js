@@ -51,12 +51,12 @@ export default function ViewStudent() {
   };
 
   return (
-    <Flex direction="column" style={{ minHeight: "100vh", backgroundColor: "#f4f6f9" }}>
+    <Flex direction="column" style={{ minHeight: "100vh", backgroundColor: "#303030" }}>
       <Col span={4}>
         <Navbar />
       </Col>
       <Col span={20} style={{ padding: "20px" }}>
-        <Title level={2} className="mb-6 text-center" style={{ color: "#1890ff" }}>
+        <Title level={2} className="mb-6 text-center" style={{ color: "#ffffff" }}>
           <UserOutlined /> Student List
         </Title>
 
@@ -88,6 +88,7 @@ export default function ViewStudent() {
                     width: "100%",
                     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
                     borderRadius: "8px",
+                    marginTop:"30px",
                     backgroundColor: "#ffffff", // Card background
                   }}
                   actions={[
@@ -106,7 +107,7 @@ export default function ViewStudent() {
                     </Button>,
                   ]}
                 >
-                  <div>
+                  <div className="font-sans">
                     <p>
                       <strong>Roll No:</strong> {student.roll_no}
                     </p>
