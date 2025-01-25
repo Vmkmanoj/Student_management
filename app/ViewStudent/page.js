@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex, Col, Row, Card, Spin, Button, Typography } from "antd";
+import { Flex, Col, Row, Card, Skeleton, Button, Typography } from "antd";
 import Navbar from "../Navbar/page";
 import { useState, useEffect } from "react";
 import { DeleteOutlined, UserOutlined } from "@ant-design/icons";
@@ -65,9 +65,13 @@ export default function ViewStudent() {
         )}
 
         {loading && (
-          <div style={{ textAlign: "center", marginTop: "50px" }}>
-            <Spin size="large" tip="Loading Students..." />
-          </div>
+          <Row gutter={[16, 16]}>
+            {Array.from({ length: 8 }).map((_, index) => (
+              <Col key={index} xs={24} sm={12} md={8} lg={6}>
+                <Skeleton active paragraph={{ rows: 4 }} />
+              </Col>
+            ))}
+          </Row>
         )}
 
         {!loading && students.length === 0 && (
@@ -88,7 +92,7 @@ export default function ViewStudent() {
                     width: "100%",
                     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
                     borderRadius: "8px",
-                    marginTop:"30px",
+                    marginTop: "30px",
                     backgroundColor: "#ffffff", // Card background
                   }}
                   actions={[
